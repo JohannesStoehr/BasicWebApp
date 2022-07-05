@@ -1,5 +1,7 @@
 package com.develogical;
 
+import java.util.Arrays;
+
 public class QueryProcessor {
 
     public String process(String query) {
@@ -11,6 +13,8 @@ public class QueryProcessor {
             return "Penguins are the cutest animals on earth";
         } else if(query.toLowerCase().contains("what is your name")) {
             return "Johannes";
+        } else if(query.toLowerCase().contains("which of the following numbers is the largest:")) {
+            return Arrays.stream(query.substring(query.indexOf(":") + 2).split(", ")).mapToInt(Integer::parseInt).max().getAsInt()  + "";
         }
         return query;
     }

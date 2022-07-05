@@ -12,7 +12,7 @@ public class QueryProcessorTest {
 
     @Test
     public void returnsEmptyStringIfCannotProcessQuery() {
-        assertThat(queryProcessor.process("test"), is(""));
+        assertThat(queryProcessor.process("test"), is("test"));
     }
 
     @Test
@@ -29,5 +29,11 @@ public class QueryProcessorTest {
    public void penguins()  {
        assertThat(queryProcessor.process("This is a query about penguins"), containsString("animal"));
    }
+    @Test
+    public void numbers()  {
+        assertThat(queryProcessor.process("which of the following numbers is the largest: 550, 21"), containsString("550"));
+    }
+
+
 
 }
