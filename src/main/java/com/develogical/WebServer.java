@@ -41,14 +41,14 @@ public class WebServer {
 
   static class Api extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
       String query = req.getParameter("q");
       new ApiResponse(new QueryProcessor().process(query)).writeTo(resp);
     }
   }
 
   private Integer portNumberToUse() {
-    return System.getenv("PORT") != null ? Integer.valueOf(System.getenv("PORT")) : 8080;
+    return System.getenv("PORT") != null ? Integer.parseInt(System.getenv("PORT")) : 8080;
   }
 
   public static void main(String[] args) throws Exception {

@@ -9,6 +9,8 @@ public class QueryProcessor {
                     "writer in the English language and the world's pre-eminent dramatist.";
         } else if(query.toLowerCase().contains("penguin")) {
             return "Penguins are the cutest animals on earth";
+        } else if(query.toLowerCase().contains("what is your name")) {
+            return "Johannes";
         }
         return "";
     }

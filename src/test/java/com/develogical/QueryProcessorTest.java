@@ -11,17 +11,17 @@ public class QueryProcessorTest {
     QueryProcessor queryProcessor = new QueryProcessor();
 
     @Test
-    public void returnsEmptyStringIfCannotProcessQuery() throws Exception {
+    public void returnsEmptyStringIfCannotProcessQuery() {
         assertThat(queryProcessor.process("test"), is(""));
     }
 
     @Test
-    public void knowsAboutShakespeare() throws Exception {
+    public void knowsAboutShakespeare() {
         assertThat(queryProcessor.process("Shakespeare"), containsString("playwright"));
     }
 
     @Test
-    public void isNotCaseSensitive() throws Exception {
+    public void isNotCaseSensitive() {
         assertThat(queryProcessor.process("shakespeare"), containsString("playwright"));
     }
 
