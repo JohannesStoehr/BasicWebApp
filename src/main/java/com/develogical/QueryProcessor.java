@@ -12,6 +12,6 @@ public class QueryProcessor {
         } else if(query.toLowerCase().contains("what is your name")) {
             return "Johannes";
         }
-        return "";
+        return query;
     }
 }
