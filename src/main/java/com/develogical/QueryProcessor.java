@@ -15,6 +15,14 @@ public class QueryProcessor {
             return "Johannes";
         } else if(query.toLowerCase().contains("which of the following numbers is the largest:")) {
             return Arrays.stream(query.substring(query.indexOf(":") + 2).split(", ")).mapToInt(Integer::parseInt).max().getAsInt()  + "";
+        } else  if(query.toLowerCase().contains("plus")) {
+            return Arrays.stream(query.split(" ")).mapToInt(s -> {
+                try {
+                    return Integer.parseInt(s);
+                } catch (Throwable t)  {
+                    return 0;
+                }
+            }).sum() + "";
         }
         return query;
     }
